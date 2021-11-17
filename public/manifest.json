@@ -1,0 +1,23 @@
+{
+    "name": "A Todo App",
+    "short_name": "Todo",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "192x192",
+            "type": "img/png"
+
+        },
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "img/png"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+
+}
