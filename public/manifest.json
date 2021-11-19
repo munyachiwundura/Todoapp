@@ -3,13 +3,13 @@
     "short_name": "Todo",
     "icons": [
         {
-            "src": "/icon.png",
+            "src": "/icon192.png",
             "sizes": "192x192",
             "type": "img/png"
             
         },
         {
-            "src": "/icon-512x512.png",
+            "src": "/icon.png",
             "sizes": "512x512",
             "type": "img/png"
         }
