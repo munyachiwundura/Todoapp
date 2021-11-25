@@ -2,7 +2,7 @@ import Head from "next/head";
 import AddTaskModal from "./addTaskModal";
 import Navbar from "./navbar";
 import TitleBar from "./titlebar";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 
 
@@ -20,6 +20,13 @@ const Layout = ({children}) => {
     
 
     const [addTask, setAddTask] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect (() => {
+        window.innerWidth > 800? setIsMobile(false) : setIsMobile(true)
+        console.log(window.innerWidth)
+    }, []
+    )
 
     return ( 
             <TodoContex.Provider value={todos.todo}>
@@ -32,7 +39,7 @@ const Layout = ({children}) => {
             {children}
 
             {addTask && <AddTaskModal close_add_task_modal={() => setAddTask(false)}/>}
-            <Navbar open_add_task_modal={() => setAddTask(true)}/>
+            <Navbar mobile={isMobile} open_add_task_modal={() => setAddTask(true)}/>
         </div>
         </TodoContex.Provider>
      );

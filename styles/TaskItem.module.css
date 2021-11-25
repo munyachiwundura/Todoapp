@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  width: 100%;
+  width: clamp(250px, 100%, 300px);
   height: 100px;
   background: rgba(146, 146, 146, 0.25);
   border-radius: 30px;

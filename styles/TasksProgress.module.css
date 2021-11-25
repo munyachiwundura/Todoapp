@@ -8,7 +8,7 @@
     #a3affe 50.95%,
     #87dcd0 97.7%
   );
-  width: 100%;
+  width: clamp(250px, 100%, 300px);
   height: 200px;
   border-radius: 30px;
   color: #000;

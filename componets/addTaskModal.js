@@ -33,6 +33,7 @@ const AddTaskModal = (props) => {
                     e.preventDefault()
                     addItem()
                     alert("task added")
+                    props.close_add_task_modal
                     }}>        
                     <div>
                 <div onClick={props.close_add_task_modal} className={styles.backdrop}>

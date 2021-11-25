@@ -1,4 +1,5 @@
 import styles from '../styles/TasksProgress.module.css'
+import {motion} from "framer-motion"
 
 const TasksProgress = (props) => {
     return ( 
@@ -6,7 +7,9 @@ const TasksProgress = (props) => {
         <p className={styles.title}>Todays Tasks Progress</p>
         <span className={styles.progress}>{props.done}/{props.total} completed</span>
         <div className={styles.progress_bar}>
-          <span className={styles.progress_indicator} style={{width: props.progress}}></span>
+          <motion.div animate={{width: props.progress}} className={styles.progress_indicator} >
+
+          </motion.div>
         </div>
         </div>
      );

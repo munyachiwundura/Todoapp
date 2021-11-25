@@ -3,24 +3,39 @@ import styles from '../styles/Home.module.css'
 import TasksProgress from '../componets/tasksProgress'
 import TaskItem from '../componets/taskItem'
 import { useState, useEffect, useContext } from 'react'
+import OverallTasksProgress from '../componets/overallTasksProgress'
 
 
 export default function Home() {
 
   const [tasks, setTasks] = useState([])
-
-
-    const [taskTitle, setTaskTitle] = useState("")
-    const [taskTime, setTaskTime] = useState("")
-    const [taskColor, setTaskColor] = useState("pink")
-    const [taskStatus, setTaskStatus] = useState(false)
+  const [taskStatus, setTaskStatus] = useState(1)
     
     useEffect(() => {
     const res = localStorage.getItem("todos")
     res != null? setTasks(JSON.parse(res)) : setTasks([])
-    }, [])
+    })
 
+    useEffect(() => {
+      console.log(tasks)
+      console.log(tasks.filter((x) => x.status == false))
+      const done = tasks.filter((x) => x.status == false)  
+      const ammountDone = done.length
+      console.log(ammountDone)
+      setTaskStatus(ammountDone)
+    })
  
+    const statusChange = (e) => {
+      
+      let items = tasks
+      let item = e
+      item.status = !e.status
+      let index = tasks.indexOf(e)
+      items[index] = item
+      setTasks(items)
+      localStorage.setItem("todos", JSON.stringify(items))
+      
+      }
     
   
 
@@ -33,24 +48,26 @@ export default function Home() {
       </Head>
 
     <main>
-        <h1 className={styles.title}>Home</h1>
       <header className={styles.greeting_container}>
+        <h1 className={styles.title}>Home</h1>
         <div >
           <p className={styles.greeting}>Hello</p>
           <p className={styles.greeting}>Munyaradzi</p>
         </div>
-      </header>
       <section>
-        <TasksProgress total={tasks.length} done={1} progress={1 / tasks.length * 100 + "%"}/>  
+        <TasksProgress total={tasks.length} done={taskStatus} progress={taskStatus / tasks.length * 100 + "%"}/>  
+        <OverallTasksProgress/>
+        <button onClick={()=> setTaskStatus(taskStatus+1)}></button>
       </section>
-      <section>
+      </header>
+      <section className={styles.right_section}>
         {/* <input type="text" onChange={(e) => setTaskTitle(e.target.value)}/>
         <button onClick={() => setTasks(tasks.concat(
           {title: taskTitle, time: "9:00 AM", color: "#afe5c1", status: true}
   ))}>Add task</button> */}
           <span>Todays Tasks</span>
           {tasks && tasks.map(x => 
-          <TaskItem key={x.title} color={x.color} title={x.title} time={x.time}/>
+          <TaskItem tap={() => statusChange(x)} status={x.status} key={x.title} color={x.color} title={x.title} time={x.time}/>
           )}
       </section>
     </main>

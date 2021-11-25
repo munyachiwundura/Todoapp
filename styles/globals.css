@@ -29,3 +29,11 @@ section {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+@media only screen and (min-width: 800px) {
+  main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
