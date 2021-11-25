@@ -1,9 +1,12 @@
-const Calendar = () => {
+import Calendar from "react-calendar"
+import styles from '../styles/CalendarPage.module.css'
+
+const CalendarPage = () => {
     return ( 
-        <div>
-            Calendar rako
+        <div className={styles.page}>
+            <Calendar/>
         </div>
      );
 }
  
-export default Calendar;
+export default CalendarPage;

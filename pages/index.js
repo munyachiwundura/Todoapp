@@ -48,6 +48,7 @@ export default function Home() {
       </Head>
 
     <main>
+  
       <header className={styles.greeting_container}>
         <h1 className={styles.title}>Home</h1>
         <div >

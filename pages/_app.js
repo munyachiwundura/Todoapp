@@ -2,8 +2,10 @@ import '../styles/globals.css'
 import Layout from '../componets/layout'
 import Head from 'next/head'
 
+
 function MyApp({ Component, pageProps }) {
     return (
+      <div>
       <Layout>
         <Head>
             <link rel='manifest' href='/manifest.json'/>
@@ -12,6 +14,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <Component {...pageProps} />
       </Layout>
+      </div>
     )
 }
 

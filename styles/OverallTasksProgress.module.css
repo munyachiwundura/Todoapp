@@ -30,6 +30,7 @@
   position: relative;
   bottom: 40px;
   right: -15%;
+  z-index: 1;
 }
 
 .button {
